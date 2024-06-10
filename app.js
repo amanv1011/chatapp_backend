@@ -5,7 +5,6 @@ import { errorMiddleware } from "./middlewares/error.js";
 import cookieParser from "cookie-parser";
 import { Server } from "socket.io";
 import { createServer } from "http";
-import { v4 as uuid } from "uuid";
 import cors from "cors";
 import { v2 as cloudinary } from "cloudinary";
 import {
@@ -48,8 +47,9 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://chatapp-frontend-27xd.onrender.com",
-    methods: ["GET", "POST"],
+    origin:
+      "https://66669ca25ed85100a19391ac--relaxed-cupcake-1e7aa2.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   },
