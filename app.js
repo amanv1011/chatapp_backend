@@ -63,7 +63,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "https://chatapp-frontend-27xd.onrender.com",
-    methods: ["*"], // Allow all methods
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
