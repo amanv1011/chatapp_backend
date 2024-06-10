@@ -47,8 +47,18 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin:
-      "https://66669ca25ed85100a19391ac--relaxed-cupcake-1e7aa2.netlify.app",
+    origin: (origin, callback) => {
+      // Check if the origin is allowed
+      const allowedOrigins = [
+        "http://localhost:3000", // Add more origins as needed
+        "https://66669ca25ed85100a19391ac--relaxed-cupcake-1e7aa2.netlify.app",
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -62,8 +72,17 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin:
-      "https://66669ca25ed85100a19391ac--relaxed-cupcake-1e7aa2.netlify.app",
+    origin: (origin, callback) => {
+      // Check if the origin is allowed
+      const allowedOrigins = [
+        "http://localhost:5173", // Add more origins as needed
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
