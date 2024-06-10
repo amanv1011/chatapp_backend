@@ -62,7 +62,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://chatapp-frontend-27xd.onrender.com",
+    origin:
+      "https://66669ca25ed85100a19391ac--relaxed-cupcake-1e7aa2.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
