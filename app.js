@@ -51,7 +51,6 @@ const io = new Server(server, {
       // Check if the origin is allowed
       const allowedOrigins = [
         "http://localhost:3000", // Add more origins as needed
-        "https://66669ca25ed85100a19391ac--relaxed-cupcake-1e7aa2.netlify.app",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
